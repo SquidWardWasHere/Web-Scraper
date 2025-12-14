@@ -14,7 +14,7 @@ import (
 
 func main() {
 	var targetUrl string
-	fmt.Print("Hedef Site URL'sini giriniz (Örn: https://web-scraper.com): ")
+	fmt.Print("Hedef Site URL'sini giriniz (Örn: https://target-url.com): ")
 	_, err := fmt.Scanln(&targetUrl)
 	if err != nil && err.Error() != "unexpected newline" {
 		log.Fatalf("Giriş hatası: %v", err)
