@@ -108,7 +108,6 @@ func main() {
 	defer linkFile.Close()
 
 	for _, link := range links {
-		// Boş olmayan linkleri dosyaya yaz
 		if link != "" {
 			linkFile.WriteString(link + "\n")
 		}
