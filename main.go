@@ -101,6 +101,10 @@ func main() {
 		}
 		fmt.Printf("[+] Ekran görüntüsü başarıyla '%s' dosyasına kaydedildi.\n", pngFileName)
 	}
+
+	fmt.Println("\n--- AŞAMA 3: Site Linklerini Listeleme ---")
+	fmt.Println("-> Linkler toplanıyor ve listeleniyor...")
+
 	linkFile, err := os.Create(linksFileName)
 	if err != nil {
 		log.Fatal(err)
@@ -108,13 +112,12 @@ func main() {
 	defer linkFile.Close()
 
 	for _, link := range links {
-		// Boş olmayan linkleri dosyaya yaz
 		if link != "" {
 			linkFile.WriteString(link + "\n")
 		}
-		
+
 	}
 	fmt.Printf("[+] Bulunan %d adet URL '%s' dosyasına kaydedildi.\n", len(links), linksFileName)
 
-		fmt.Println("\n[√] Tüm görevler tamamlandı.")
+	fmt.Println("\n[√] Tüm görevler tamamlandı.")
 }
