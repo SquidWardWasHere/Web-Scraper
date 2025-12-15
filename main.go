@@ -56,7 +56,7 @@ func main() {
 	defer cancel()
 
 	var htmlContent string
-	var screenshotBuf []byte
+	var screenshotData []byte
 	var links []string
 
 	fmt.Println("\n--- AŞAMA 1: HTML Bilgisi ---")
@@ -90,13 +90,13 @@ func main() {
 	fmt.Println("-> Siteye gidiliyor ve görüntü işleniyor...")
 
 	err = chromedp.Run(ctx,
-		chromedp.FullScreenshot(&screenshotBuf, 90),
+		chromedp.FullScreenshot(&screenshotData, 90),
 	)
 
 	if err != nil {
 		fmt.Printf("[-] Ekran görüntüsü alma hatası: %v\n", err)
 	} else {
-		if err := os.WriteFile(pngFileName, screenshotBuf, 0644); err != nil {
+		if err := os.WriteFile(pngFileName, screenshotData, 0644); err != nil {
 			log.Fatal(err)
 		}
 		fmt.Printf("[+] Ekran görüntüsü başarıyla '%s' dosyasına kaydedildi.\n", pngFileName)
